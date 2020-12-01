@@ -1,0 +1,586 @@
+@charset "UTF-8";
+/**
+*
+* @authors Your Name (you@example.org)
+* @date    2016-12-10 16:57:22
+* @version $Id$
+*/
+
+/*
+purple #B1658B;
+red #CA2420;
+blue #326295;
+orange #F89829;
+*/
+*, *::after, *::before {
+	-ms-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+
+html {
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,body{
+	letter-spacing: 3px;
+	font-family: "微軟正黑體", "微软雅黑","Helvetica Neue", Helvetica, Arial, sans-serif;
+	min-height: 100% !important;
+	width: 100%;
+    height: 100%;
+
+    padding: 0;
+    margin: 0;
+    background: #EEE;
+}
+
+body{
+	overflow-x: hidden;
+}
+
+img.illfull{
+	width: 100%;
+}
+
+.lihsi-desktop{
+	display: inline-block !important;
+}
+
+.lihsi-mobile{
+	display: none !important;
+}
+
+.wrap{
+	width: 100%;
+	height: auto;
+}
+
+nav{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 30px 60px;
+	background: none;
+	z-index: 10;
+	pointer-events: none;
+}
+
+nav .logo{
+	width: 13%;
+	min-width: 120px;
+	float: left;
+	pointer-events: auto;
+}
+
+nav .logo img{
+	width: 100%;
+	max-width: 250px;
+}
+
+nav .switch{
+	display: inline-block;
+	position: fixed;
+	top: 30px;
+	right: 60px;
+	width: 52px;
+	height: 52px;
+	float: right;
+	background: url(../images/menu.png);
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+	pointer-events: auto;
+	z-index: 7;
+}
+
+nav .switch.open{
+	background: url(../images/menu_open.png);
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+nav .menu_pannel{
+	display: inline-block;
+	position: fixed;
+	width: 550px;
+	height: 100vh;
+	top: 0;
+	right: -100%;
+	padding: 120px 60px;
+	background: #850f00;
+	z-index: 6;
+	pointer-events: auto;
+}
+
+nav .menu_pannel.open{
+	animation-name: showomenu;
+	animation-fill-mode: forwards;
+	animation-duration: 0.2s;
+}
+
+nav .menu_pannel ul{
+	display: inline-block;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+nav .menu_pannel ul li{
+	display: inline-block;
+	width: 100%;
+}
+
+nav .menu_pannel ul li a{
+	display: inline-block;
+	width: 100%;
+	padding: 25px 0;
+	color: #FFF;
+	text-decoration: none;
+	font-size: 24px;
+	letter-spacing: 5px;
+}
+
+nav .menu_pannel ul li a:hover{
+	text-decoration: underline;
+}
+
+.container{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	background: #b33222;
+}
+
+.compare-zone{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: url(../images/kv_ill.png);
+	background-size: 2048px auto;
+	background-repeat: no-repeat;
+	background-position: center top;
+	z-index: 4;
+}
+
+.compare-zone .overlay{
+	position: relative;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 5;
+	border-right: 2px solid #c73f2b;
+
+	background: url(../images/kv_base.png);
+	background-size: 2048px auto;
+	background-repeat: no-repeat;
+	background-position: calc(50vw - 1024px) top;
+}
+
+.compare-zone .overlay.open{
+	width: 85%;
+	animation-name: showoverlay;
+	animation-duration: 0.5s;
+}
+
+.compare-zone .overlay.close{
+	width: 15%;
+	animation-name: closeoverlay;
+	animation-duration: 0.5s;
+}
+
+.compare-zone .overlay img{
+	width: 1920px;
+	margin: auto calc(50vw - 960px);
+}
+
+.compare-zone .slogan{
+	position: absolute;
+	width: 35%;
+	bottom: calc(42px + 4%);
+	left: calc(50% - 20%);
+	z-index: 5;
+	pointer-events: none;
+}
+
+.chsnextstep .goinvoice{
+	position: absolute;
+	width: 15%;
+	bottom: calc(42px + 40%);
+	left: calc(50% + 21%);
+	z-index: 5;
+}
+
+.chsnextstep .gohero{
+	position: absolute;
+	width: 15%;
+	bottom: calc(42px + 27%);
+	left: calc(50% + 30%);
+	z-index: 5;
+}
+
+.resume{
+	position: absolute;
+	top: 30%;
+	left: calc(50% - 47%);
+	z-index: 5;
+	pointer-events: none;
+	font-size: 24px;
+	color: #FFF;
+	text-shadow: 2px 2px 5px #000;
+	line-height: 40px;
+}
+
+.goinstantnoodlesgroup .instantnoodles{
+	position: absolute;
+	width: 28.3%;
+	bottom: calc(42px + 0%);
+	left: calc(50% + 20%);
+	z-index: 5;
+	pointer-events: none;
+}
+
+.goinstantnoodlesgroup .gobuy{
+	position: absolute;
+	width: 6%;
+	bottom: calc(42px + 5%);
+	left: calc(50% + 13%);
+	z-index: 5;
+}
+
+.crop{
+	display: inline-block;
+	position: absolute;
+	bottom: calc(42px + 2%);
+	left: 0;
+	padding-left: 60px;
+	z-index: 5;
+	pointer-events: none;
+	color: #FFF;
+	font-size: 11px;
+	letter-spacing: 0;
+}
+
+footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+	text-align: center;
+	color: #FFF;
+	background: #000;
+	letter-spacing: 0;
+	z-index: 6;
+}
+
+@keyframes showoverlay{
+    from{
+        width: 50%;
+    }
+    to{
+        width: 85%;
+    }
+}
+
+@keyframes closeoverlay{
+    from{
+        width: 50%;
+    }
+    to{
+        width: 15%;
+    }
+}
+
+@keyframes showomenu{
+    from{
+        right: -100%;
+    }
+    to{
+        right: 0;
+    }
+}
+
+/*小於等於1440*/
+@media (max-width: 1440px) {
+
+	nav{
+		padding: 15px 30px;
+	}
+
+	nav .switch{
+		top: 20px;
+		right: 30px;
+		width: 42px;
+		height: 42px;
+	}
+
+	nav .menu_pannel{
+		width: 360px;
+		padding: 80px 30px;
+	}
+
+	nav .menu_pannel ul li a{
+		padding: 20px 0;
+		font-size: 18px;
+		letter-spacing: 3px;
+	}
+
+	.compare-zone{
+		background: url(../images/kv_ill.png);
+		background-size: 1680px auto;
+		background-repeat: no-repeat;
+		background-position: center top;
+	}
+
+	.compare-zone .overlay{
+
+		background: url(../images/kv_base.png);
+		background-size: 1680px auto;
+		background-repeat: no-repeat;
+		background-position: calc(50vw - 840px) top;
+	}
+
+	.resume{
+		bottom: calc(42px + 45%);
+		left: calc(50% - 48%);
+		font-size: 16px;
+		line-height: 30px;
+	}
+
+	.crop{
+		padding-left: 30px;
+	}
+}
+
+/*小於等於960*/
+@media (max-width: 960px) {
+
+	.lihsi-desktop{
+		display: none !important;
+	}
+
+	.lihsi-mobile{
+		display: inline-block !important;
+	}
+
+	nav{
+		padding: 30px 15px;
+	}
+
+	.container{
+		height: auto;
+		overflow: auto;
+	}
+
+	.compare-zone{
+		height: 960px;
+		background-size: 1920px auto;
+		background-repeat: no-repeat;
+		background-position: center top;
+	}
+
+	.compare-zone .overlay{
+		height: 100%;
+		background: url(../images/kv_base.png);
+		background-size: 1920px auto;
+		background-repeat: no-repeat;
+		background-position: calc(50vw - 960px) top;
+	}
+
+	.compare-zone .slogan{
+		position: absolute;
+		width: 70%;
+		bottom: calc(50% - 40%);
+		left: calc(50% - 38%);
+		z-index: 5;
+		pointer-events: none;
+	}
+
+	.chsnextstep{
+		display: inline-block;
+		width: 100%;
+		padding: 50px 15px;
+	}
+
+	.chsnextstep .goinvoice{
+		position: relative;
+		float: left;
+		width: 50%;
+		padding: 30px 15px 0 15px;
+		bottom: auto;
+		left: auto;
+	}
+
+	.chsnextstep .gohero{
+		position: relative;
+		float: right;
+		width: 50%;
+		padding: 0 15px;
+		bottom: auto;
+		left: auto;
+	}
+
+	.resume{
+		display: inline-block;
+		position: relative;
+		width: 100%;
+		padding: 30px 50px;
+		bottom: auto;
+		left: auto;
+		pointer-events: auto;
+
+		font-size: 32px;
+		line-height: 50px;
+	}
+
+	.goinstantnoodlesgroup{
+		display: inline-block;
+		width: 100%;
+		padding: 50px 15px;
+	}
+
+	.goinstantnoodlesgroup .instantnoodles{
+		display: inline-block;
+		position: relative;
+		float: right;
+		width: 75%;
+		bottom: auto;
+		left: auto;
+		pointer-events: auto;
+	}
+
+	.goinstantnoodlesgroup .gobuy{
+		display: inline-block;
+		position: relative;
+		float: left;
+		width: 25%;
+		padding: 30px 10px 0 0;
+		bottom: auto;
+		left: auto;
+		pointer-events: auto;
+	}
+
+	.crop{
+		display: none;
+	}
+
+	footer{
+		position: relative;
+		width: 100%;
+		padding: 10px;
+		font-size: 16px;
+		text-align: center;
+		color: #FFF;
+		background: #000;
+		letter-spacing: 0;
+		z-index: 6;
+	}
+}
+
+@media (max-width: 768px) {
+	
+}
+
+@media (max-width: 480px) {
+
+	nav{
+		padding-top: 15px;
+	}
+
+	nav .switch{
+		top: 15px;
+		right: 15px;
+		width: 36px;
+		height: 36px;
+	}
+
+	nav .menu_pannel{
+		width: 100%;
+		padding: 70px 0px;
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	nav .menu_pannel ul{
+		padding: 0 15px;
+		background: #850f00;
+	}
+
+	nav .menu_pannel ul li a{
+		padding: 15px 0px;
+		font-size: 20px;
+		letter-spacing: 1px;
+		text-align: center;
+		border-bottom: solid 1px #FFF;
+	}
+
+	nav .menu_pannel ul li a:hover{
+		text-decoration: none;
+	}
+
+	nav .menu_pannel ul li:last-child a{
+		border-bottom: 0;
+	}
+
+	.compare-zone{
+		height: 480px;
+		background-size: 960px auto;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+
+	.compare-zone .overlay{
+		height: 100%;
+		background: url(../images/kv_base.png);
+		background-size: 960px auto;
+		background-repeat: no-repeat;
+		background-position: calc(50vw - 480px) center;
+	}
+
+	.chsnextstep{
+		padding: 30px 15px;
+	}
+
+	.chsnextstep .goinvoice{
+		padding: 15px 15px 0 15px;
+	}
+
+	.chsnextstep .gohero{
+		padding: 0 15px;
+	}
+
+	.resume{
+		padding: 15px 25px;
+
+		font-size: 16px;
+		line-height: 30px;
+	}
+
+	.goinstantnoodlesgroup{
+		padding: 30px 30px;
+	}
+
+	footer{
+		position: relative;
+		width: 100%;
+		padding: 10px;
+		font-size: 16px;
+		text-align: center;
+		color: #FFF;
+		background: #000;
+		letter-spacing: 0;
+		z-index: 6;
+	}
+}
